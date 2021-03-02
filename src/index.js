@@ -4,10 +4,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Portfolio from './pages/Portfolio'
+import {Route, Link, BrowserRouter as Router} from '../node_modules/react-router-dom'
+
+const myrouter =(
+  <Router>
+    <div>
+      <ul>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/portfolio">Portfolio</Link>
+      </ul>
+
+      <Route exact path="/" component={App}></Route>
+      <Route path="/about" component={About}></Route>
+      <Route path="/contact" component={Contact}></Route>
+      <Route path="/portfolio" component={Portfolio}></Route>
+    </div>
+  </Router>
+)
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  myrouter,
   document.getElementById('root')
 );
 
